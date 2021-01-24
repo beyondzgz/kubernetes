@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: deamonset-example
+  labels:
+    app: daemonset
+spec:
+  selector:
+    matchLabels:
+      name: deamonset-example #必须和metadata的name一样
+  template:
+    metadata:
+      labels:
+        name: deamonset-example
+    spec:
+      containers:
+      - name: daemonset-example
+        image: hub.morin.work/library/nginx:v1
